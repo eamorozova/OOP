@@ -5,6 +5,7 @@ import lab_3.*
 fun main(args: Array<String>) {
     lab_1()
     lab_2()
+    lab_3()
 }
 
 fun lab_1() {
@@ -29,7 +30,7 @@ fun lab_2() {
 
     println("\nLAB 2\n")
 
-    val shapes = listOf<Shape>(
+    val shapes = listOf(
         Circle(3.0),
         Rectangle(1.0, 8.0),
         Square(5.0),
@@ -38,7 +39,7 @@ fun lab_2() {
         Triangle(2.0, 3.0, 2.0)
     )
 
-    println("Total area:\n${shapes.sumByDouble { shape -> shape.calcArea()}}")
+    println("Total area:\n${shapes.sumByDouble { it.calcArea()}}")
     println("Max S:\n${shapes.maxByOrNull { it.calcArea() } }")
     println("Min S:\n${shapes.minByOrNull { it.calcArea() }}")
     println("Max P:\n${shapes.maxByOrNull { it.calcPerimeter() }}")
