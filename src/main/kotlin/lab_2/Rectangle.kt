@@ -2,7 +2,7 @@ package lab_2
 
 import kotlin.IllegalArgumentException
 
-open class Rectangle(private val height: Double, private val width: Double): Shape {
+open class Rectangle(val height: Double, val width: Double): Shape {
     init {
         if (height <= 0 || width <= 0)
             throw IllegalArgumentException("Error. Parameters are incorrect.")

@@ -2,7 +2,7 @@ package lab_2
 
 import kotlin.IllegalArgumentException
 
-class Circle(private val radius: Double): Shape {
+class Circle(val radius: Double): Shape {
     init {
         if (radius <= 0)
             throw IllegalArgumentException("Error. Radius is incorrect.")

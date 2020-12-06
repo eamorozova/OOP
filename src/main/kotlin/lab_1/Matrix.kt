@@ -4,7 +4,7 @@ import kotlin.IndexOutOfBoundsException
 import kotlin.IllegalArgumentException
 import kotlin.math.pow
 
-class Matrix(val rows: Int, val columns: Int) {
+class Matrix(private val rows: Int, private val columns: Int) {
     private var elements: Array<Array<Double>>
 
     // initialization of empty matrix
@@ -102,8 +102,13 @@ class Matrix(val rows: Int, val columns: Int) {
         return product
     }
 
-    // returns matrix size
-    fun size(): String = "$rows x $columns"
+    fun getRows() : Int {
+        return rows
+    }
+
+    fun getColumns() : Int {
+        return columns
+    }
 
     // compute determinant
     fun determinant(): Double {

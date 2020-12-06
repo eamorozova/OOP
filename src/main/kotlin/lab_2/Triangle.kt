@@ -2,7 +2,7 @@ package lab_2
 
 import kotlin.math.sqrt
 
-class Triangle(private val a: Double, private val b: Double, private val c: Double): Shape {
+class Triangle(val a: Double,  val b: Double, val c: Double): Shape {
     init {
         if (a <= 0 || b <= 0 || c <= 0)
             throw IllegalArgumentException("Error. Values are incorrect.")
