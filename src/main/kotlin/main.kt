@@ -1,11 +1,15 @@
 import lab_1.Matrix
 import lab_2.*
 import lab_3.*
+import lab_4.ShapeAccumulator
+import lab_5.ShapeSerializer
 
 fun main(args: Array<String>) {
-    lab_1()
-    lab_2()
-    lab_3()
+    //lab_1()
+    //lab_2()
+    //lab_3()
+    //lab_4()
+    //lab_5()
 }
 
 fun lab_1() {
@@ -47,6 +51,9 @@ fun lab_2() {
 }
 
 fun lab_3() {
+
+    println("\nLAB 3\n")
+
     val number1 = PhoneNumber("89000000001", PhoneType.MOBILE)
     val number2 = PhoneNumber("89000100002", PhoneType.HOME)
     val number3 = PhoneNumber("89000000003", PhoneType.WORK)
@@ -74,4 +81,50 @@ fun lab_3() {
 
     phoneBook.removeContact("Anna")
     println("Removed contact by 'Anna':\n$phoneBook")
+}
+
+fun lab_4() {
+
+    println("\nLAB 4\n")
+
+    val shapes : List<Shape> = listOf(
+        Circle(3.0),
+        Rectangle(1.0, 8.0),
+        Square(1.0),
+        Triangle(1.0, 2.0, 2.0),
+        Triangle(2.0, 3.0, 2.0)
+    )
+
+    val square = Square(5.0)
+
+    val shapeAccumulator = ShapeAccumulator()
+    shapeAccumulator.addAll(shapes)
+    shapeAccumulator.add(square)
+
+    println("Total area:\n${shapeAccumulator.getTotalArea()}")
+    println("Total perimeter:\n${shapeAccumulator.getTotalPerimeter()}")
+    println("Max S:\n${shapeAccumulator.getMaxAreaShape()}")
+    println("Min S:\n${shapeAccumulator.getMinAreaShape()}")
+    println("Max P:\n${shapeAccumulator.getMaxPerimeterShape()}")
+    println("Min P:\n${shapeAccumulator.getMinPerimeterShape()}")
+}
+
+fun lab_5() {
+
+    println("\nLAB 5\n")
+
+    val shapes : List<Shape> = listOf(
+        Circle(3.0),
+        Rectangle(1.0, 8.0),
+        Square(5.0),
+        Square(1.0),
+        Triangle(1.0, 2.0, 2.0),
+        Triangle(2.0, 3.0, 2.0)
+    )
+
+    ShapeSerializer().convertToJson(shapes, "shapes.json")
+
+    val shapeJson : List<Shape> = ShapeSerializer().convertFromJson("shapes.json")
+
+    println(shapeJson)
 }
